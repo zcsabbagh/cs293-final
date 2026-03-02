@@ -1,0 +1,4 @@
+I'm a bit confused about this pivot away from prerequisites! Let's chat?
+-0.5 for missing / unclear codebook
+- 1 for all 3 models being LLMs (the non-LLM add could be more thoughtful)
+-0.25 for underdeveloped proposal (how will you overcome low IRR / evaluate?)

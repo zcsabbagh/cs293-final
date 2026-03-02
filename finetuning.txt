@@ -1,0 +1,24 @@
+# A3 Fine-Tuning Plan
+
+## Task
+Given a K–12 math problem, predict which CCSS standard(s) it addresses. The model chooses from all standards defined in `standards.jsonl` (385 unique codes).
+
+## Base Models
+- **Llama 3B** (smaller, faster, baseline)
+- **Llama 7B** (larger, expected better performance)
+
+## Data
+- **Training set:** Publisher-labeled problems from the MathFish HuggingFace dataset (~13K problems with CCSS labels)
+- **Test set:** ~100 held-out human-annotated, adjudicated problems (gold labels) — never seen during training
+- Input: problem text
+- Output: one or more CCSS standard codes (e.g., `3.OA.A.1, 3.OA.A.2`)
+
+## Approach
+1. Format training data as instruction-tuning pairs: prompt = problem text + list of valid standards from `standards.jsonl`, completion = correct standard code(s)
+2. Fine-tune both models using QLoRA (4-bit quantization + LoRA adapters) to fit on available compute
+3. Evaluate both on the same held-out gold test set
+
+## Evaluation
+- Precision, recall, F1, exact match at standard / cluster / domain levels
+- Compare against A2 zero-shot LLM baselines (GPT-5.2, Claude, Gemini)
+- Error analysis: categorize mistakes as false positives, false negatives, within-cluster substitutions, cross-domain errors

@@ -1,0 +1,8 @@
+{
+  "model": "Llama 3.1 8B Instruct",
+  "task": "Addressing",
+  "epochs": 3,
+  "lora_r": 16,
+  "eval_set": "200 random test problems (seed=42)",
+  "note": "Grade-level per-grade breakdown not yet captured for 8B Addressing. Standard/cluster/domain metrics are in evaluation_results_8b_assess.json."
+}

@@ -1,0 +1,44 @@
+{
+  "base_model": {
+    "standard": {
+      "precision": 0.0024583333333333336,
+      "recall": 0.0175,
+      "f1": 0.004239028944911298,
+      "exact_match": 0.0
+    },
+    "cluster": {
+      "precision": 0.010138888888888888,
+      "recall": 0.03,
+      "f1": 0.014666666666666666,
+      "exact_match": 0.0
+    },
+    "domain": {
+      "precision": 0.0435,
+      "recall": 0.06,
+      "f1": 0.04726190476190476,
+      "exact_match": 0.035
+    }
+  },
+  "finetuned_model": {
+    "standard": {
+      "precision": 0.16166666666666665,
+      "recall": 0.15708333333333335,
+      "f1": 0.15416666666666667,
+      "exact_match": 0.11
+    },
+    "cluster": {
+      "precision": 0.2675,
+      "recall": 0.25416666666666665,
+      "f1": 0.25583333333333336,
+      "exact_match": 0.215
+    },
+    "domain": {
+      "precision": 0.36,
+      "recall": 0.3341666666666667,
+      "f1": 0.3418333333333333,
+      "exact_match": 0.3
+    }
+  },
+  "num_test": 1693,
+  "num_train": 4960
+}

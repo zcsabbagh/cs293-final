@@ -1,0 +1,45 @@
+{
+  "task": "Building On (Prerequisites)",
+  "base_model": {
+    "standard": {
+      "precision": 0.03241522570566688,
+      "recall": 0.11833333333333332,
+      "f1": 0.04291638242218737,
+      "exact_match": 0.005
+    },
+    "cluster": {
+      "precision": 0.09614552808302808,
+      "recall": 0.2033333333333333,
+      "f1": 0.1155394327894328,
+      "exact_match": 0.03
+    },
+    "domain": {
+      "precision": 0.17459523809523808,
+      "recall": 0.28833333333333333,
+      "f1": 0.1962103174603174,
+      "exact_match": 0.065
+    }
+  },
+  "finetuned_model": {
+    "standard": {
+      "precision": 0.31983333333333336,
+      "recall": 0.30516666666666664,
+      "f1": 0.30055952380952367,
+      "exact_match": 0.2
+    },
+    "cluster": {
+      "precision": 0.3938333333333334,
+      "recall": 0.36933333333333335,
+      "f1": 0.3690833333333333,
+      "exact_match": 0.29
+    },
+    "domain": {
+      "precision": 0.44416666666666665,
+      "recall": 0.41833333333333333,
+      "f1": 0.42,
+      "exact_match": 0.345
+    }
+  },
+  "num_eval": 200,
+  "num_train": 1739
+}

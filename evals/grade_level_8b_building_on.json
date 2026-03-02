@@ -1,0 +1,32 @@
+{
+  "model": "Llama 3.1 8B Instruct",
+  "task": "Building On (Prerequisites)",
+  "epochs": 3,
+  "lora_r": 16,
+  "eval_set": "200 random test problems (seed=42)",
+  "overall_grade_level": {
+    "base": {
+      "precision": 0.277,
+      "recall": 0.411,
+      "f1": 0.306,
+      "exact_match": 0.130
+    },
+    "finetuned": {
+      "precision": 0.555,
+      "recall": 0.542,
+      "f1": 0.539,
+      "exact_match": 0.465
+    }
+  },
+  "finetuned_per_grade": {
+    "1":  {"n": 3,  "std_f1": 0.000, "domain_f1": 0.333, "grade_f1": 0.333},
+    "2":  {"n": 15, "std_f1": 0.389, "domain_f1": 0.544, "grade_f1": 0.556},
+    "3":  {"n": 24, "std_f1": 0.370, "domain_f1": 0.472, "grade_f1": 0.569},
+    "4":  {"n": 31, "std_f1": 0.339, "domain_f1": 0.473, "grade_f1": 0.613},
+    "5":  {"n": 23, "std_f1": 0.342, "domain_f1": 0.435, "grade_f1": 0.464},
+    "6":  {"n": 42, "std_f1": 0.218, "domain_f1": 0.313, "grade_f1": 0.425},
+    "7":  {"n": 37, "std_f1": 0.346, "domain_f1": 0.468, "grade_f1": 0.532},
+    "8":  {"n": 24, "std_f1": 0.529, "domain_f1": 0.583, "grade_f1": 0.653},
+    "HS": {"n": 33, "std_f1": 0.131, "domain_f1": 0.242, "grade_f1": 0.576}
+  }
+}

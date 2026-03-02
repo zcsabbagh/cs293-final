@@ -1,0 +1,33 @@
+{
+  "model": "Llama 3.2 1B Instruct",
+  "task": "Addressing",
+  "epochs": 8,
+  "lora_r": 16,
+  "eval_set": "200 random test problems (seed=42)",
+  "overall_grade_level": {
+    "base": {
+      "precision": 0.447,
+      "recall": 0.447,
+      "f1": 0.447,
+      "exact_match": 0.447
+    },
+    "finetuned": {
+      "precision": 0.492,
+      "recall": 0.495,
+      "f1": 0.493,
+      "exact_match": 0.490
+    }
+  },
+  "finetuned_per_grade": {
+    "1":  {"n": 14, "std_f1": 0.146, "domain_f1": 0.357, "grade_f1": 0.405},
+    "2":  {"n": 11, "std_f1": 0.173, "domain_f1": 0.303, "grade_f1": 0.455},
+    "3":  {"n": 21, "std_f1": 0.310, "domain_f1": 0.500, "grade_f1": 0.571},
+    "4":  {"n": 20, "std_f1": 0.083, "domain_f1": 0.350, "grade_f1": 0.350},
+    "5":  {"n": 20, "std_f1": 0.070, "domain_f1": 0.250, "grade_f1": 0.300},
+    "6":  {"n": 14, "std_f1": 0.071, "domain_f1": 0.214, "grade_f1": 0.214},
+    "7":  {"n": 21, "std_f1": 0.127, "domain_f1": 0.317, "grade_f1": 0.476},
+    "8":  {"n": 26, "std_f1": 0.058, "domain_f1": 0.244, "grade_f1": 0.423},
+    "K":  {"n": 10, "std_f1": 0.100, "domain_f1": 0.567, "grade_f1": 0.900},
+    "HS": {"n": 43, "std_f1": 0.096, "domain_f1": 0.202, "grade_f1": 0.698}
+  }
+}

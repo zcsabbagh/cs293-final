@@ -40,10 +40,56 @@ F1 improvement over 3 epochs: 2x at standard, 1.9x at cluster, 1.4x at domain. M
 
 3B at 3 epochs beats 1B at 8 epochs. Model scale matters more than training duration.
 
-## Experiment 4: Llama 3.1 8B (in progress)
+## Experiment 4: Llama 3.1 8B Addressing (3 epochs, r=16)
 
-## Experiment 5: Building On / Prerequisites (in progress)
-- 1B model, 8 epochs, trained on "Building On" labels instead of "Addressing"
+| Model | Level | Precision | Recall | F1 | Exact Match |
+|-------|-------|-----------|--------|-----|-------------|
+| 8B base (zero-shot) | standard | 0.012 | 0.053 | 0.017 | 0.000 |
+| 8B fine-tuned (3 ep) | standard | 0.340 | 0.336 | 0.326 | 0.230 |
+| 8B base (zero-shot) | cluster | 0.060 | 0.110 | 0.071 | 0.020 |
+| 8B fine-tuned (3 ep) | cluster | 0.468 | 0.461 | 0.457 | 0.375 |
+| 8B base (zero-shot) | domain | 0.125 | 0.185 | 0.140 | 0.075 |
+| 8B fine-tuned (3 ep) | domain | 0.568 | 0.550 | 0.552 | 0.490 |
+
+8B crushes all smaller models. Standard F1 jumps from 0.154 (3B) to 0.326. Domain F1 reaches 0.552.
+
+## Experiment 4b: Llama 3.1 8B Building On (3 epochs, r=16)
+
+| Model | Level | Precision | Recall | F1 | Exact Match |
+|-------|-------|-----------|--------|-----|-------------|
+| 8B base (zero-shot) | standard | 0.032 | 0.118 | 0.043 | 0.005 |
+| 8B fine-tuned (3 ep) | standard | 0.320 | 0.305 | 0.301 | 0.200 |
+| 8B base (zero-shot) | cluster | 0.096 | 0.203 | 0.116 | 0.030 |
+| 8B fine-tuned (3 ep) | cluster | 0.394 | 0.369 | 0.369 | 0.290 |
+| 8B base (zero-shot) | domain | 0.175 | 0.288 | 0.196 | 0.065 |
+| 8B fine-tuned (3 ep) | domain | 0.444 | 0.418 | 0.420 | 0.345 |
+
+Grade-level: Base F1=0.306, Fine-tuned F1=0.539.
+
+## Experiment 5: Building On / Prerequisites (1B, 8 epochs, r=16)
+
+| Metric | Base (zero-shot) | Fine-tuned |
+|--------|-----------------|------------|
+| Grade-level P | 0.063 | 0.375 |
+| Grade-level R | 0.109 | 0.389 |
+| Grade-level F1 | 0.078 | 0.373 |
+| Grade-level EM | 0.005 | 0.290 |
+
+Fine-tuned per-grade breakdown:
+
+| Grade | N | Std F1 | Domain F1 | Grade F1 |
+|-------|---|--------|-----------|----------|
+| 1 | 3 | 0.000 | 0.000 | 0.000 |
+| 2 | 15 | 0.033 | 0.200 | 0.267 |
+| 3 | 24 | 0.068 | 0.264 | 0.621 |
+| 4 | 31 | 0.069 | 0.301 | 0.497 |
+| 5 | 23 | 0.000 | 0.052 | 0.099 |
+| 6 | 42 | 0.081 | 0.266 | 0.361 |
+| 7 | 37 | 0.083 | 0.293 | 0.365 |
+| 8 | 24 | 0.118 | 0.319 | 0.375 |
+| HS | 33 | 0.040 | 0.051 | 0.515 |
+
+Note: No K-grade problems in Building On eval set. Grade 1 (n=3) too small to be meaningful. Building On is harder than Addressing — lower F1 across the board, likely due to prerequisite standards being less directly related to problem text.
 
 ## Summary: Addressing Task F1 by Model
 
@@ -53,6 +99,7 @@ F1 improvement over 3 epochs: 2x at standard, 1.9x at cluster, 1.4x at domain. M
 | 1B fine-tuned (3 ep) | 0.059 | 0.114 | 0.224 |
 | 1B fine-tuned (8 ep) | 0.119 | 0.218 | 0.306 |
 | 3B fine-tuned (3 ep) | 0.154 | 0.256 | 0.342 |
+| 8B fine-tuned (3 ep) | 0.326 | 0.457 | 0.552 |
 
 ## A2 Zero-Shot Baselines (for comparison)
 
