@@ -20,8 +20,15 @@
 
 F1 improvement: 7-8x across all levels.
 
-## Experiment 2: 1B with 8 epochs (in progress)
-- Same setup as Exp 1 but num_train_epochs=8
+## Experiment 2: 1B with 8 epochs (r=16)
+
+| Model | Level | Precision | Recall | F1 | Exact Match |
+|-------|-------|-----------|--------|-----|-------------|
+| 1B fine-tuned (8 ep) | standard | 0.120 | 0.134 | 0.119 | 0.060 |
+| 1B fine-tuned (8 ep) | cluster | 0.225 | 0.228 | 0.218 | 0.160 |
+| 1B fine-tuned (8 ep) | domain | 0.316 | 0.309 | 0.306 | 0.245 |
+
+F1 improvement over 3 epochs: 2x at standard, 1.9x at cluster, 1.4x at domain. Model hadn't converged at 3 epochs.
 
 ## Experiment 3: Llama 3.2 3B (in progress)
 - Same setup but 3B model, batch_size=4, grad_accum=8
