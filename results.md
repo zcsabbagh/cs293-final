@@ -30,8 +30,29 @@ F1 improvement: 7-8x across all levels.
 
 F1 improvement over 3 epochs: 2x at standard, 1.9x at cluster, 1.4x at domain. Model hadn't converged at 3 epochs.
 
-## Experiment 3: Llama 3.2 3B (in progress)
-- Same setup but 3B model, batch_size=4, grad_accum=8
+## Experiment 3: Llama 3.2 3B (3 epochs, r=16)
+
+| Model | Level | Precision | Recall | F1 | Exact Match |
+|-------|-------|-----------|--------|-----|-------------|
+| 3B fine-tuned (3 ep) | standard | 0.162 | 0.157 | 0.154 | 0.110 |
+| 3B fine-tuned (3 ep) | cluster | 0.268 | 0.254 | 0.256 | 0.215 |
+| 3B fine-tuned (3 ep) | domain | 0.360 | 0.334 | 0.342 | 0.300 |
+
+3B at 3 epochs beats 1B at 8 epochs. Model scale matters more than training duration.
+
+## Experiment 4: Llama 3.1 8B (in progress)
+
+## Experiment 5: Building On / Prerequisites (in progress)
+- 1B model, 8 epochs, trained on "Building On" labels instead of "Addressing"
+
+## Summary: Addressing Task F1 by Model
+
+| Model | Standard | Cluster | Domain |
+|-------|----------|---------|--------|
+| 1B base (zero-shot) | 0.008 | 0.013 | 0.028 |
+| 1B fine-tuned (3 ep) | 0.059 | 0.114 | 0.224 |
+| 1B fine-tuned (8 ep) | 0.119 | 0.218 | 0.306 |
+| 3B fine-tuned (3 ep) | 0.154 | 0.256 | 0.342 |
 
 ## A2 Zero-Shot Baselines (for comparison)
 
